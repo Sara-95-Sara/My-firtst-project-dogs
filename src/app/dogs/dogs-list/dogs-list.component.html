@@ -1,0 +1,32 @@
+<button (click)="setCreate()">Crear nuevo Dog</button>
+<h3>{{ msgStatus }} Position: {{ selectedIndex }}</h3>
+<div class="container">
+    <app-createdog
+    [selectedDog]="selectedDog"
+    (createUpdateDogEvent)="onCreateUpdateDog($event)"
+    ></app-createdog>
+    <table>
+    <thead>
+    <tr>
+    <th>Edad</th>
+    <th>Nombre</th>
+    <th>Raza</th>
+    <th>Borrar</th>
+    <th>Editar</th>
+    </tr>
+    </thead>
+    <tr *ngFor="let dog of DogsList; let position = index">
+    <td>{{ dog.edad }}</td>
+    <td>{{ dog.nombre }}</td>
+<td>{{ dog.raza }}</td>
+<td (click)="deleteDog(dog._id)" style="cursor: pointer">Borrar</td>
+<td (click)="setSelectedDog(dog, position)" style="cursor: pointer">
+Editar
+</td>
+</tr>
+</table>
+<div *ngIf="selectedDog">
+<h1>Selected Dog</h1>
+<h3>Nombre: {{ selectedDog.nombre }}</h3>
+</div>
+</div>

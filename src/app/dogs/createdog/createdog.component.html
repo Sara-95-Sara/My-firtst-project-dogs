@@ -1,0 +1,13 @@
+<form [formGroup]="dogForm" (ngSubmit)="onSubmit(dogForm.value)">
+    <label for="id">_id</label>
+    <input type="text" name="_id" formControlName="_id">
+    <label for="nombre">Nombre</label>
+    <input type="text" name="nombre" formControlName="nombre">
+    <label for="edad">Edad</label>
+    <input type="text" name="edad" formControlName="edad">
+    <label for="raza">Raza</label>
+    <input type="text" name="raza" formControlName="raza">
+    <button>
+        {{createUpdateMsg}}
+    </button>
+</form>
